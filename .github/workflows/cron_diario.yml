@@ -2,8 +2,8 @@ name: Actualizacion Diaria Macro Oro
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Se ejecuta todos los días automáticamente
-  workflow_dispatch:    # También te pone un botón para correrlo manualmente cuando quieras
+    - cron: '0 14 * * *' # Se ejecuta todos los días a las 8:00 AM hora de México (14:00 UTC)
+  workflow_dispatch:    # Permite ejecutarlo manualmente desde la pestaña Actions
 
 permissions:
   contents: write
