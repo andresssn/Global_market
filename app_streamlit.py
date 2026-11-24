@@ -1,11 +1,20 @@
+import os
 import pandas as pd
 import plotly.express as px
 import streamlit as st
+from Adquisition_Daily import actualizar_historico  # Importa tu función recolectora
 
 st.set_page_config(page_title="Monitor Riesgo Macro y Oro", layout="wide")
 st.title("📊 Monitor Patrimonial: Apalancamiento L/M0 y Poder en Oro")
 
-df = pd.read_csv("historico_macro_riesgo.csv")
+ARCHIVO_CSV = "historico_macro_riesgo.csv"
+
+# Si el CSV aún no existe, lo genera en ese momento
+if not os.path.exists(ARCHIVO_CSV):
+  with st.spinner("Generando primer registro histórico en tiempo real..."):
+    actualizar_historico()
+
+df = pd.read_csv(ARCHIVO_CSV)
 ultimo = df.iloc[-1]
 
 # Tarjetas de indicadores principales

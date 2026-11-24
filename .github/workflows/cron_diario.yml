@@ -24,7 +24,7 @@ jobs:
         run: pip install pandas yfinance
 
       - name: Ejecutar recolector diario
-        run: python recolector_diario.py
+        run: python Adquisition_Daily.py
 
       - name: Guardar nuevo registro en el CSV
         run: |
