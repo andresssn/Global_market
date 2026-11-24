@@ -1,0 +1,35 @@
+name: Actualizacion Diaria Macro Oro
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Se ejecuta todos los días automáticamente
+  workflow_dispatch:    # También te pone un botón para correrlo manualmente cuando quieras
+
+permissions:
+  contents: write
+
+jobs:
+  ejecutar-monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar librerías
+        run: pip install pandas yfinance
+
+      - name: Ejecutar recolector diario
+        run: python recolector_diario.py
+
+      - name: Guardar nuevo registro en el CSV
+        run: |
+          git config --local user.email "bot@github.com"
+          git config --local user.name "Monitor Macro Bot"
+          git add historico_macro_riesgo.csv
+          git commit -m "Actualización diaria automática" || exit 0
+          git push
