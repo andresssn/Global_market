@@ -1,2 +1,3 @@
-Fecha,Oro_USD,USD_MXN,USA_L_M0,MX_M4_M0,Oz_Libres_Anio,Producto_Libre_MX
-2026-11-24,3551.7,19.41,11.3,6.29,29.87,187.83
+Fecha,Pais,Oro_USD,Tipo_Cambio,Multiplo_L_M0,Oz_Libres_Anio,Producto_Libre
+2026-11-25,México,3617.8,19.59,6.29,29.06,182.75
+2026-11-25,Estados Unidos,3617.8,1.0,11.3,21.21,239.82
